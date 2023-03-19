@@ -150,6 +150,31 @@
       overflow: auto;
       }
       
+    .w3-button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    
+    .w3-button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -50px;
+      transition: 0.5s;
+    }
+    
+    .w3-button:hover span {
+      padding-right: 25px;
+    }
+    
+    .w3-button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }      
+      
      </style>
 </head>
   
@@ -211,7 +236,7 @@ id="cai-webchat">
 <footer class="w3-container w3-center w3-padding-48">
    <a href="/disclaimer.html" title="Idk what disclamer is, but here ya go!">Disclamer</a><br><br>
    <a class="w3-margin-bottom" href="https://www.w3schools.com/spaces" title="This website was made with W3schools Spaces. Make your own free website today!" target="_blank">
-   <img src="https://spaces.w3schools.com/logo_4x.png" alt="This website was made with W3schools Spaces. Make your own free website today!" width="50" height="50">
+   <img src="https://spaces.w3schools.com/logo_4x.png" alt="This website was first made on W3schools Spaces. Make your own free website today!" width="50" height="50">
    </a> 
 <!-- End footer -->
 </footer>
