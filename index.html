@@ -4,52 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitHub Data Saver</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 </head>
 <body>
 <h1>GitHub Data Saver</h1>
-<form id="dataForm">
+<form id="dataForm" action="/saveData" method="post">
   <label for="dataInput">Enter Data:</label><br>
-  <input type="text" id="dataInput" name="dataInput"><br><br>
+  <input type="text" id="dataInput" name="data"><br><br>
   <button type="submit">Save Data</button>
 </form>
-
-<script>
-document.getElementById("dataForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  const inputData = document.getElementById("dataInput").value;
-  saveData(inputData);
-});
-
-async function saveData(data) {
-  try {
-    const accessToken = "YOUR_GITHUB_ACCESS_TOKEN";
-    const repoOwner = "YOUR_GITHUB_USERNAME";
-    const repoName = "YOUR_REPOSITORY_NAME";
-    const filePath = "data.txt"; // File path where data will be saved
-    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
-    
-    const response = await axios.put(
-      apiUrl,
-      {
-        message: "Added new data",
-        content: btoa(data), // Encode data to base64
-        branch: "main",
-      },
-      {
-        headers: {
-          Authorization: `token ${accessToken}`,
-        },
-      }
-    );
-    
-    console.log("Data saved successfully:", response.data);
-    alert("Data saved successfully!");
-  } catch (error) {
-    console.error("Error saving data:", error);
-    alert("An error occurred while saving data. Please try again later.");
-  }
-}
-</script>
 </body>
 </html>
