@@ -22,6 +22,7 @@ app.post('/saveData', async (req, res) => {
       {
         headers: {
           Authorization: `token ${accessToken}`,
+          'Content-Type': 'application/json', // Add this line
         },
       }
     );
